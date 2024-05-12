@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 628627206265261837, guid: 23cc04ff5cb8ae44bbdbb0fc2e81c3fc, type: 3}
       propertyPath: m_TagString
-      value: Respawn
+      value: Obstacles
       objectReference: {fileID: 0}
     - target: {fileID: 2446653974717961557, guid: 23cc04ff5cb8ae44bbdbb0fc2e81c3fc, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -558,7 +558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 628627206265261837, guid: 23cc04ff5cb8ae44bbdbb0fc2e81c3fc, type: 3}
       propertyPath: m_TagString
-      value: Respawn
+      value: Obstacles
       objectReference: {fileID: 0}
     - target: {fileID: 2446653974717961557, guid: 23cc04ff5cb8ae44bbdbb0fc2e81c3fc, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -688,7 +688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 628627206265261837, guid: 23cc04ff5cb8ae44bbdbb0fc2e81c3fc, type: 3}
       propertyPath: m_TagString
-      value: Respawn
+      value: Obstacles
       objectReference: {fileID: 0}
     - target: {fileID: 2446653974717961557, guid: 23cc04ff5cb8ae44bbdbb0fc2e81c3fc, type: 3}
       propertyPath: m_Materials.Array.data[0]
