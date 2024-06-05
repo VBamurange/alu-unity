@@ -1,10 +1,10 @@
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
-//using static System.Net.Mime.MediaTypeNames;
 
 public class Timer : MonoBehaviour
 {
-    public Text TimerText; // Reference to the TimerText Text object
+    public Text timerText;
 
     private float startTime;
     private bool timerStarted;
@@ -22,7 +22,6 @@ public class Timer : MonoBehaviour
             UpdateTimerText(elapsedTime);
         }
     }
-
     public void StartTimer()
     {
         startTime = Time.time;
@@ -34,12 +33,13 @@ public class Timer : MonoBehaviour
         timerStarted = false;
     }
 
-    private void UpdateTimerText(float elapsedTime)
+    public void UpdateTimerText(float elapsedTime)
     {
         int minutes = Mathf.FloorToInt(elapsedTime / 60f);
         int seconds = Mathf.FloorToInt(elapsedTime % 60f);
         int milliseconds = Mathf.FloorToInt((elapsedTime * 100f) % 100f);
 
-        TimerText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+        timerText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+
     }
 }

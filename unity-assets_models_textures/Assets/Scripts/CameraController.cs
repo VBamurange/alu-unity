@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private Transform Player;
+    public Transform Player;
     private float AngleRotation = 45f;
 
     private Vector3 DistanceApart = Vector3.zero;
@@ -15,9 +15,9 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        if (Player != null) { 
+         
         DistanceApart = transform.position - Player.position;
-    }
+    
 }
 
     private void Update()
