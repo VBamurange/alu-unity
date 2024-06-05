@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 
@@ -6,14 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
-    private Transform cameraPosition;
+    public float fallThreshold = -10f;
     private Rigidbody rb;
-    private Vector3 vertical;
-    private Vector3 horizontaL;
     private float moveX;
     private float moveZ;
     private Vector3 InitialPosition;
-    public CharacterController controller;
+    private bool isGrounded;
 
     private void Awake()
     {
@@ -22,11 +21,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        controller = GetComponent<CharacterController>();
-        if (cameraPosition == null)
-        {
-            cameraPosition =   Camera.main.transform;
-        }
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        InitialPosition = transform.position;
     }
 
     void Update()
@@ -41,32 +37,48 @@ public class PlayerController : MonoBehaviour
          moveX = Input.GetAxis("Horizontal");
          moveZ = Input.GetAxis("Vertical");
 
-        Vector3 forward = cameraPosition.forward;
-        Vector3 right = cameraPosition.right;
+        
 
-        forward.y = 0;
-        right.y = 0;
-        forward.Normalize();
-        right.Normalize();
-
-        Vector3 move = new Vector3(moveX, 0, moveZ);
-        rb.AddForce(move * (Time.deltaTime * moveSpeed));
+        Vector3 move = new Vector3(moveX, 0.0f, moveZ);
+        rb.velocity = new Vector3(move.x * moveSpeed, rb.velocity.y, move.z * moveSpeed);
     }
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
         }
     }
 
     void CheckFall()
     {
-        Vector3 spaceGap = new Vector3(0, 3, 0);
-        if (transform.position.y < -3f)
+        if (transform.position.y < fallThreshold)
         {
-            transform.position = InitialPosition + spaceGap;
+            Respawn();
+        }
+    }
+
+    private void Respawn()
+    {
+        transform.position = InitialPosition;
+        rb.velocity = Vector3.zero;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
         }
     }
 }
