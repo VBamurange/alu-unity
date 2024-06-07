@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float jumpForce = 5f;
+    public float jumpForce = 25f;
     public float fallThreshold = -10f;
     private Rigidbody rb;
     private float moveX;
