@@ -2062,6 +2062,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5604845396194633049, guid: 6f054b6d3113ea14a94f797b37fb390b, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 83d96b18c510be24ea6df34f34969fb7, type: 3}
     - target: {fileID: 8702919868463674973, guid: 6f054b6d3113ea14a94f797b37fb390b, type: 3}
       propertyPath: m_Name
       value: TimerCanvas
