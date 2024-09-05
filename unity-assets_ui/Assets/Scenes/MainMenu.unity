@@ -1504,26 +1504,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6152533470130099295, guid: 4fe8e60e57b0ab049938c43f2f77b414, type: 3}
-      propertyPath: m_Transition
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6152533470130099295, guid: 4fe8e60e57b0ab049938c43f2f77b414, type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: -782983092, guid: e08d352320332f842a41b4083fa56971, type: 3}
-    - target: {fileID: 6152533470130099295, guid: 4fe8e60e57b0ab049938c43f2f77b414, type: 3}
-      propertyPath: m_SpriteState.m_HighlightedSprite
-      value: 
-      objectReference: {fileID: 796952672, guid: e08d352320332f842a41b4083fa56971, type: 3}
-    - target: {fileID: 6285565902295251772, guid: 4fe8e60e57b0ab049938c43f2f77b414, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 763030739, guid: e08d352320332f842a41b4083fa56971, type: 3}
-    - target: {fileID: 8282743156577478205, guid: 4fe8e60e57b0ab049938c43f2f77b414, type: 3}
-      propertyPath: m_Name
-      value: ExitText
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1626,26 +1606,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionsButton
       objectReference: {fileID: 0}
-    - target: {fileID: 4782929029315421897, guid: e9b3d9b223f3fd641ac6e6926bfb4892, type: 3}
-      propertyPath: m_Name
-      value: OptionsText
-      objectReference: {fileID: 0}
-    - target: {fileID: 5325856520035119464, guid: e9b3d9b223f3fd641ac6e6926bfb4892, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 763030739, guid: e08d352320332f842a41b4083fa56971, type: 3}
-    - target: {fileID: 8258639947833742828, guid: e9b3d9b223f3fd641ac6e6926bfb4892, type: 3}
-      propertyPath: m_Transition
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8258639947833742828, guid: e9b3d9b223f3fd641ac6e6926bfb4892, type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: -782983092, guid: e08d352320332f842a41b4083fa56971, type: 3}
-    - target: {fileID: 8258639947833742828, guid: e9b3d9b223f3fd641ac6e6926bfb4892, type: 3}
-      propertyPath: m_SpriteState.m_HighlightedSprite
-      value: 
-      objectReference: {fileID: 796952672, guid: e08d352320332f842a41b4083fa56971, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
