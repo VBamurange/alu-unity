@@ -9,19 +9,16 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public SettingsSO settings;
 
     public void LevelSelect(int level)
     {
-
-        settings.LastScene = 4;
-        SceneManager.LoadScene(level);
+        string _scene = "Level0" + level.ToString();
+        SceneManager.LoadScene(_scene);
     }
 
     public void Options()
     {
-        settings.LastScene = 4;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Options");
     }
 
     public void Exit()
