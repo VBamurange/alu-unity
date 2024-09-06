@@ -2243,9 +2243,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4029324731071038165, guid: 1cab4da2ed24fe1489bf2348bb0fa65a, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 6a809998d9714704bb84797c3d03d466, type: 3}
+    - target: {fileID: 4029324731071038165, guid: 1cab4da2ed24fe1489bf2348bb0fa65a, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4774033518396029068, guid: 1cab4da2ed24fe1489bf2348bb0fa65a, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785919732749465568, guid: 1cab4da2ed24fe1489bf2348bb0fa65a, type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785919732749465568, guid: 1cab4da2ed24fe1489bf2348bb0fa65a, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
