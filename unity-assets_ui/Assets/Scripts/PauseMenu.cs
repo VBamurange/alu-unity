@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,10 +8,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject _pauseCanvas;
     private bool isPaused = false;
 
-    void update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+   
             if (isPaused)
             {
                 Resume();  
