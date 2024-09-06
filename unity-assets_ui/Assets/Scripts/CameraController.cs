@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform Player;
+
+    public bool isInverted = false;
     private float AngleRotation = 45f;
 
     private Vector3 DistanceApart = Vector3.zero;
@@ -29,8 +31,18 @@ public class CameraController : MonoBehaviour
     void RotateAroundPlayer()
     {
         rotationX += Input.GetAxis("Mouse X") * AngleRotation * Time.deltaTime;
-        rotationY -= Input.GetAxis("Mouse Y") * AngleRotation * Time.deltaTime;
-        Quaternion rotation = Quaternion.Euler(0, rotationX, 0);
+
+        float mouseY = Input.GetAxis("Mouse Y");
+        if (isInverted)
+        {
+            rotationY += mouseY * AngleRotation * Time.deltaTime;
+        }
+        else
+        {
+            rotationY -= mouseY * AngleRotation * Time.deltaTime;
+        }
+
+            Quaternion rotation = Quaternion.Euler(0, rotationX, 0);
 
         transform.rotation = rotation;
 
