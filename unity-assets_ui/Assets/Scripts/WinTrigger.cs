@@ -5,14 +5,14 @@ public class WinTrigger : MonoBehaviour
 {
     public Timer timerScript;
     public Text timerText;
+    public GameObject _winCanvas;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            timerScript.StopTimer();
-            timerText.fontSize = 60;
-            timerText.color = Color.green;
+            timerScript.Win();
+            _winCanvas.SetActive(true);
         }
     }
         

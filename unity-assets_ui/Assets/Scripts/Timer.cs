@@ -9,9 +9,13 @@ public class Timer : MonoBehaviour
     private float startTime;
     private bool timerStarted;
 
+    public Text _finalTimeText;
+    public GameObject _winCanvas;
+
     private void Start()
     {
         timerStarted = false;
+        _winCanvas.SetActive(false);
     }
 
     private void Update()
@@ -42,4 +46,21 @@ public class Timer : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
 
     }
+
+    public void Win()
+    {
+        StopTimer();
+
+        float _finalTime = Time.time - startTime;
+        StopTimer();
+
+        int minutes = Mathf.FloorToInt(_finalTime / 60f);
+        int seconds = Mathf.FloorToInt(_finalTime % 60f);
+        int milliseconds = Mathf.FloorToInt((_finalTime * 100f) % 100f);
+
+        _finalTimeText.text = string.Format("Final Time: {0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+
+        _winCanvas.SetActive(true);
+    }
+
 }
