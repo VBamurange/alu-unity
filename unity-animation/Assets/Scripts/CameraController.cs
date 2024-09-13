@@ -1,4 +1,5 @@
 
+using System.Threading;
 using UnityEngine;
 
 
@@ -6,7 +7,7 @@ public class CameraController : MonoBehaviour
 {
     public Transform Player;
 
-    public bool isInverted = false;
+    public bool isInverted;
     private float AngleRotation = 45f;
 
     private Vector3 DistanceApart = Vector3.zero;
@@ -14,10 +15,14 @@ public class CameraController : MonoBehaviour
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
 
+    public float rotationSpeed = 7f;
+
+    public float minYrotation = -55f;
+    public float maxYrotation = 55f;
 
     private void Awake()
     {
-         
+        isInverted = PlayerPrefs.GetInt("isInverted", 0) == 1;
         DistanceApart = transform.position - Player.position;
     
 }
@@ -26,36 +31,49 @@ public class CameraController : MonoBehaviour
     {
         FollowPlayer();
         RotateAroundPlayer();
+        RotatePlayer();
     }
 
     void RotateAroundPlayer()
     {
         rotationX += Input.GetAxis("Mouse X") * AngleRotation * Time.deltaTime;
 
-        float mouseY = Input.GetAxis("Mouse Y");
+
         if (isInverted)
         {
-            rotationY += mouseY * AngleRotation * Time.deltaTime;
+            rotationY += Input.GetAxis("Mouse Y") * AngleRotation * Time.deltaTime;
         }
         else
         {
-            rotationY -= mouseY * AngleRotation * Time.deltaTime;
+            rotationY -= Input.GetAxis("Mouse Y") * AngleRotation * Time.deltaTime;
         }
 
-            Quaternion rotation = Quaternion.Euler(0, rotationX, 0);
+        rotationY = Mathf.Clamp(rotationY, minYrotation, maxYrotation);
+            Quaternion rotation = Quaternion.Euler(rotationY, rotationX, 0);
 
         transform.rotation = rotation;
 
-        transform.position = Player.position - (rotation * new Vector3(0, 0, 5));
+        transform.position = Player.position + DistanceApart;
 
 
         // transform.RotateAround(Player.position, Vector3.up,   RotationYDirection * AngleRotation * Time.deltaTime);
-        transform.LookAt(Player);
-        transform.rotation = rotation;
+        //transform.LookAt(Player);
+        //transform.rotation = rotation;
     }
 
     void FollowPlayer()
     {
-        transform.position = Player.transform.position + DistanceApart;
+        Vector3 pos = Player.position + DistanceApart;
+        transform.position = pos;
+    }
+
+    void RotatePlayer()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        if (horizontal != 0)
+        {
+            Quaternion pos = Quaternion.Euler(0, rotationX, 0);
+            Player.rotation = Quaternion.Slerp(Player.rotation, pos, Time.deltaTime * rotationSpeed);
+        }
     }
 }

@@ -754,6 +754,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 775025429}
   isInverted: 0
+  rotationSpeed: 7
+  minYrotation: -55
+  maxYrotation: 55
 --- !u!114 &775025435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,6 +772,27 @@ MonoBehaviour:
   timerText: {fileID: 1362921711}
   _finalTimeText: {fileID: 309755646}
   _winCanvas: {fileID: 26099885}
+--- !u!95 &775025440
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775025414}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b27bb1d51689ddc4db4f0991342892f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &824656791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4924362528750397627, guid: 5256d57954b2d5e429110a414df75ac7, type: 3}
@@ -2533,6 +2557,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 775025429}
   isInverted: 1
+  rotationSpeed: 7
+  minYrotation: -55
+  maxYrotation: 55
 --- !u!1001 &1012024528845832953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2881,6 +2908,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8341140850355061133, guid: 8d69b0e9e6d6b3447aac3da7c9409158, type: 3}
       insertIndex: -1
       addedObject: {fileID: 775025435}
+    - targetCorrespondingSourceObject: {fileID: 8341140850355061133, guid: 8d69b0e9e6d6b3447aac3da7c9409158, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 775025440}
   m_SourcePrefab: {fileID: 100100000, guid: 8d69b0e9e6d6b3447aac3da7c9409158, type: 3}
 --- !u!1001 &6228831959606831348
 PrefabInstance:
