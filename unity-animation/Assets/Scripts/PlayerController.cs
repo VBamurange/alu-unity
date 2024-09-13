@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         InitialPosition = transform.position;
     }
 
@@ -34,12 +35,17 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-         moveX = Input.GetAxis("Horizontal");
-         moveZ = Input.GetAxis("Vertical");
-
-        
+         float moveX = Input.GetAxis("Horizontal");
+         float moveZ = Input.GetAxis("Vertical");
 
         Vector3 move = new Vector3(moveX, 0.0f, moveZ);
+
+        if (move.magnitude > 0) 
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(move);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f); 
+        }
+
         rb.velocity = new Vector3(move.x * moveSpeed, rb.velocity.y, move.z * moveSpeed);
     }
 
