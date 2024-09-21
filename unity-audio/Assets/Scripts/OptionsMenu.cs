@@ -1,14 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
 {
 
     public Toggle _invertYToggle;
     private string previousScene;
+    public Slider BGMSlider;
+    public AudioMixer audioMixer;
+
+    private const string BGM_Volume = "BGMVolume";
 
     private void Start()
     {
@@ -16,6 +20,11 @@ public class OptionsMenu : MonoBehaviour
         _invertYToggle.isOn = isInverted;
 
         previousScene = PlayerPrefs.GetString("PreviousScene", "MainMenu");
+
+        float savedVolume = PlayerPrefs.GetFloat(BGM_Volume, 0.75f);
+        BGMSlider.value = savedVolume;
+
+        SetBGMVolume(savedVolume);
     }
 
     public void Apply()
@@ -30,5 +39,21 @@ public class OptionsMenu : MonoBehaviour
     public void Back()
     {
         SceneManager.LoadScene(previousScene);
+    }
+
+    public void OnBGMVolumeChanged(float volume)
+    {
+        SetBGMVolume(volume);
+
+        PlayerPrefs.SetFloat(BGM_Volume, volume);
+        PlayerPrefs.Save();
+    }
+
+    private void SetBGMVolume(float volume)
+    {
+        float dB = Mathf.Log10(volume) * 20;
+        if (volume == 0) dB = -80;
+
+        audioMixer.SetFloat("BGMVolume", dB);
     }
 }

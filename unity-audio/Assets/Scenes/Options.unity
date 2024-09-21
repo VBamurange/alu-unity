@@ -1456,6 +1456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _invertYToggle: {fileID: 49315123}
+  BGMSlider: {fileID: 2006434257}
+  audioMixer: {fileID: 24100000, guid: 2d8f0ba7e14d937429e3ff9c048ceebd, type: 2}
 --- !u!4 &1134792708
 Transform:
   m_ObjectHideFlags: 0
@@ -2405,7 +2407,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1134792707}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: OnBGMVolumeChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &122520419536587097
 PrefabInstance:
   m_ObjectHideFlags: 0
