@@ -10,9 +10,11 @@ public class OptionsMenu : MonoBehaviour
     public Toggle _invertYToggle;
     private string previousScene;
     public Slider BGMSlider;
+    public Slider SFXSlider;
     public AudioMixer audioMixer;
 
     private const string BGM_Volume = "BGMVolume";
+    private const string SFX_Volume = "SFXVolume";
 
     private void Start()
     {
@@ -25,6 +27,14 @@ public class OptionsMenu : MonoBehaviour
         BGMSlider.value = savedVolume;
 
         SetBGMVolume(savedVolume);
+
+        float savedSFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.75f);
+        SFXSlider.value = savedSFXVolume;
+
+        SetSFXVolume(savedSFXVolume);
+
+        BGMSlider.onValueChanged.AddListener(SetBGMVolume);
+        SFXSlider.onValueChanged.AddListener(SetSFXVolume);
     }
 
     public void Apply()
@@ -55,5 +65,11 @@ public class OptionsMenu : MonoBehaviour
         if (volume == 0) dB = -80;
 
         audioMixer.SetFloat("BGMVolume", dB);
+    }
+
+    private void SetSFXVolume(float volume)
+    {
+        float dB = Mathf.Log10(volume) * 20;
+        audioMixer.SetFloat("SFXVolume", dB);
     }
 }
